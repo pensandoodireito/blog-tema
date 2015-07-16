@@ -1,12 +1,54 @@
 @import "../../../participacao-tema/css/less/elements.less";
-.intercambio-main{
-    &-main{}
-    &-header{}
-    &-content{}
-    article{
+.borda-sombra() {
+    //borda
+    -webkit-border-top-right-radius: 30px;
+    -webkit-border-bottom-left-radius: 30px;
+    -moz-border-radius-topright: 30px;
+    -moz-border-radius-bottomleft: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    //sombra
+    -webkit-box-shadow: -1px 6px 15px -5px rgba(0, 0, 0, 0.59);
+    -moz-box-shadow: -1px 6px 15px -5px rgba(0, 0, 0, 0.59);
+    box-shadow: -1px 6px 15px -5px rgba(0, 0, 0, 0.59);
+}
+
+.intercambio-main {
+    .intercambio {
+        &-main {}
+        &-header {
+            .intercambio-logo {
+                position: relative;
+                // background
+                background: url("../images/intercambio-header.jpg") repeat top left #a58d37;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                background-size: cover;
+                -o-background-size: cover;
+                min-height: 400px;
+                .borda-sombra();
+                h1.logo {
+                    width: 226px;
+                    height: 235px;
+                    background: url("../images/logo-intercambio.png") no-repeat top left;
+                    text-indent: -90000px;
+                    position: absolute;
+                    bottom: 15px;
+                    right: 20px;
+                    .borda-sombra();
+                }
+            }
+        }
+        &-content {}
+    }
+    article {
         border-left: 5px solid #d4d4d4;
         background-color: #eaeaea;
         padding: 15px;
-        margin-bottom:10px;
+        margin: 10px 0 50px 0;
+        .borda-sombra();
+        figure img{
+        	.borda-sombra();
+        }
     }
 }
