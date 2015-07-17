@@ -34,7 +34,7 @@
                                     <p class="red font-roboto"><strong>abril/2014</strong></p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <h4 class="font-roboto"><strong><a href="#" class="red"><?php the_title(); ?></a></strong></h4>
+                                    <h4 class="font-roboto"><strong><a href="<?php the_permalink(); ?>" class="red"><?php the_title(); ?></a></strong></h4>
                                     <p><small>Publicado por: <?php the_author(); ?></small></p>
                                 </div>
                             </div>
