@@ -23,33 +23,37 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="intercambio-content">
-                    
+
+                    <?php while(have_posts()): the_post(); ?>
+
                     <article>
                         <header>
                             <div class="row">
                                 <div class="col-sm-2 text-right">
-                                    <h3 class="red font-roboto h1 mt-0">10</h3>
-                                    <p class="red font-roboto"><strong>Abril/2015</strong></p>
+                                    <h3 class="red font-roboto h1 mt-0"><?php the_date('d'); ?></h3>
+                                    <p class="red font-roboto"><strong>abril/2014</strong></p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <h4 class="font-roboto"><strong><a href="#" class="red">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum vulputate nunc sed lobortis.</a></strong></h4>
-                                    <p><small>Publicado por: Pensando o Direito</small></p>
+                                    <h4 class="font-roboto"><strong><a href="#" class="red"><?php the_title(); ?></a></strong></h4>
+                                    <p><small>Publicado por: <?php the_author(); ?></small></p>
                                 </div>
                             </div>
                         </header>
                         <section>
-                            <figure>
-                                <img src="http://lorempixel.com/output/city-q-g-640-480-1.jpg" class="img-full" alt="Intercâmbio: SAL/MJ">
-                            </figure>
+                            <?php if (has_post_thumbnail()): ?>
+                                <figure>
+                                    <?php the_post_thumbnail('full', array( 'class' => 'img-full' ) ); ?>
+                                </figure>
+                            <?php endif; ?>
                         </section>
                         <section class="mt-md">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum vulputate nunc sed lobortis. Curabitur ultrices fringilla nulla, vitae vehicula nulla condimentum eget. Mauris pretium varius enim, vitae sagittis erat elementum vitae. Cras id nisl sit amet massa venenatis tempus ut quis nunc. Curabitur eget neque bibendum, iaculis libero ac, elementum mi. Praesent arcu sem, ultrices a ornare ut, gravida et eros. Morbi eget consequat mauris.</p>
+                            <?php the_excerpt(); ?>
                             <div class="row">
                                 <div class="col-sm-8">
                                     <span class="label label-default">categoria A</span> <span class="label label-default">categoria B</span>
                                 </div>
                                 <div class="col-sm-4 text-right">
-                                    <p><small><i class="fa fa-comment-o"></i> 10 comentários</small></p>
+                                    <p><small><i class="fa fa-comment-o"></i> <a href="<?php comments_link(); ?>" alt="comentários"><?php comments_number( 'nenhum comentário', 'um comentário', '% comentários' ); ?></a></small></p>
                                 </div>
                             </div>
                             <div class="row divider-top">
@@ -59,111 +63,9 @@
                             </div>
                         </section>
                     </article>
-                    <article>
-                        <header>
-                            <div class="row">
-                                <div class="col-sm-2 text-right">
-                                    <h3 class="red font-roboto h1 mt-0">10</h3>
-                                    <p class="red font-roboto"><strong>Abril/2015</strong></p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <h4 class="font-roboto"><strong><a href="#" class="red">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum vulputate nunc sed lobortis.</a></strong></h4>
-                                    <p><small>Publicado por: Pensando o Direito</small></p>
-                                </div>
-                            </div>
-                        </header>
-                        <section>
-                            <figure>
-                                <img src="http://lorempixel.com/output/city-q-g-640-480-2.jpg" class="img-full" alt="Intercâmbio: SAL/MJ">
-                            </figure>
-                        </section>
-                        <section class="mt-md">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum vulputate nunc sed lobortis. Curabitur ultrices fringilla nulla, vitae vehicula nulla condimentum eget. Mauris pretium varius enim, vitae sagittis erat elementum vitae. Cras id nisl sit amet massa venenatis tempus ut quis nunc. Curabitur eget neque bibendum, iaculis libero ac, elementum mi. Praesent arcu sem, ultrices a ornare ut, gravida et eros. Morbi eget consequat mauris.</p>
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <span class="label label-default">categoria A</span> <span class="label label-default">categoria B</span>
-                                </div>
-                                <div class="col-sm-4 text-right">
-                                    <p><small><i class="fa fa-comment-o"></i> 10 comentários</small></p>
-                                </div>
-                            </div>
-                            <div class="row divider-top">
-                                <div class="col-xs-12 text-right">
-                                    <a href="#" class="btn btn-default btn-sm"><i class="fa fa-share-alt"></i> compartilhe</a>
-                                </div>
-                            </div>
-                        </section>
-                    </article>
-                    <article>
-                        <header>
-                            <div class="row">
-                                <div class="col-sm-2 text-right">
-                                    <h3 class="red font-roboto h1 mt-0">10</h3>
-                                    <p class="red font-roboto"><strong>Abril/2015</strong></p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <h4 class="font-roboto"><strong><a href="#" class="red">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum vulputate nunc sed lobortis.</a></strong></h4>
-                                    <p><small>Publicado por: Pensando o Direito</small></p>
-                                </div>
-                            </div>
-                        </header>
-                        <section>
-                            <figure>
-                                <img src="http://lorempixel.com/output/city-q-g-640-480-3.jpg" class="img-full" alt="Intercâmbio: SAL/MJ">
-                            </figure>
-                        </section>
-                        <section class="mt-md">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum vulputate nunc sed lobortis. Curabitur ultrices fringilla nulla, vitae vehicula nulla condimentum eget. Mauris pretium varius enim, vitae sagittis erat elementum vitae. Cras id nisl sit amet massa venenatis tempus ut quis nunc. Curabitur eget neque bibendum, iaculis libero ac, elementum mi. Praesent arcu sem, ultrices a ornare ut, gravida et eros. Morbi eget consequat mauris.</p>
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <span class="label label-default">categoria A</span> <span class="label label-default">categoria B</span>
-                                </div>
-                                <div class="col-sm-4 text-right">
-                                    <p><small><i class="fa fa-comment-o"></i> 10 comentários</small></p>
-                                </div>
-                            </div>
-                            <div class="row divider-top">
-                                <div class="col-xs-12 text-right">
-                                    <a href="#" class="btn btn-default btn-sm"><i class="fa fa-share-alt"></i> compartilhe</a>
-                                </div>
-                            </div>
-                        </section>
-                    </article>
-                    <article>
-                        <header>
-                            <div class="row">
-                                <div class="col-sm-2 text-right">
-                                    <h3 class="red font-roboto h1 mt-0">10</h3>
-                                    <p class="red font-roboto"><strong>Abril/2015</strong></p>
-                                </div>
-                                <div class="col-sm-9">
-                                    <h4 class="font-roboto"><strong><a href="#" class="red">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum vulputate nunc sed lobortis.</a></strong></h4>
-                                    <p><small>Publicado por: Pensando o Direito</small></p>
-                                </div>
-                            </div>
-                        </header>
-                        <section>
-                            <figure>
-                                <img src="http://lorempixel.com/output/city-q-g-640-480-4.jpg" class="img-full" alt="Intercâmbio: SAL/MJ">
-                            </figure>
-                        </section>
-                        <section class="mt-md">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum vulputate nunc sed lobortis. Curabitur ultrices fringilla nulla, vitae vehicula nulla condimentum eget. Mauris pretium varius enim, vitae sagittis erat elementum vitae. Cras id nisl sit amet massa venenatis tempus ut quis nunc. Curabitur eget neque bibendum, iaculis libero ac, elementum mi. Praesent arcu sem, ultrices a ornare ut, gravida et eros. Morbi eget consequat mauris.</p>
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <span class="label label-default">categoria A</span> <span class="label label-default">categoria B</span>
-                                </div>
-                                <div class="col-sm-4 text-right">
-                                    <p><small><i class="fa fa-comment-o"></i> 10 comentários</small></p>
-                                </div>
-                            </div>
-                            <div class="row divider-top">
-                                <div class="col-xs-12 text-right">
-                                    <a href="#" class="btn btn-default btn-sm"><i class="fa fa-share-alt"></i> compartilhe</a>
-                                </div>
-                            </div>
-                        </section>
-                    </article>
+
+                    <?php endwhile; ?>
+
                     <div class="row divider-top mt-lg mb-lg text-center">
                         <div class="col-xs-12">
                             <a href="#" class="btn btn-danger"><i class="fa fa-plus"></i> Mais postagens</a>
