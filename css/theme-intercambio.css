@@ -1,6 +1,6 @@
 .intercambio-main .intercambio-header .intercambio-logo {
   position: relative;
-  background: url("../images/intercambio-header.jpg") repeat top left #a58d37;
+  background: repeat top left #521E1B;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -19,7 +19,7 @@
 .intercambio-main .intercambio-header .intercambio-logo h1.logo {
   width: 226px;
   height: 235px;
-  background: url("../images/logo-intercambio.png") no-repeat top left;
+  background: no-repeat top left #521e1b;
   text-indent: -90000px;
   position: absolute;
   bottom: 15px;
