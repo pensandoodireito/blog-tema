@@ -11,7 +11,7 @@
                 <div class="col-xs-12">
                     <div class="intercambio-logo">
                         <?php
-                            $blog_settings = get_blog_option(get_current_blog_id(), 'participacao_settings');
+                            $blog_settings =  get_option('participacao_settings');
                         ?>
                         <h1 class="logo" style="background-image: url(<?php echo $blog_settings['logo']; ?>);">
                         Programa de intercâmbio SAL/SAJ
