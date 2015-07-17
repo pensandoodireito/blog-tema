@@ -34,11 +34,7 @@
             <div class="categorias divider-top">
                 <h4 class="red font-roboto">Categorias</h4>
                 <ul class="list-unstyled">
-                    <li><a href="#">Cras justo odio</a></li>
-                    <li><a href="#">Dapibus ac facilisis in</a></li>
-                    <li><a href="#">Morbi leo risus</a></li>
-                    <li><a href="#">Porta ac consectetur ac</a></li>
-                    <li><a href="#">Vestibulum at eros</a></li>
+                    <?php wp_list_categories(); ?>
                 </ul>
             </div>
         </div>
