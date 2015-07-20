@@ -8,8 +8,7 @@ get_header(); ?>
         // Start the Loop.
         while (have_posts()) : the_post();
             // Include the page content template.
-            get_template_part('content', 'search');
-            comments_template();
+            get_template_part('content', 'archive');
         endwhile;
         ?>
         <?php get_sidebar(); ?>
