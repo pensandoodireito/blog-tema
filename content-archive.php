@@ -12,9 +12,9 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <!--<?php the_post_thumbnail(); ?>-->
-  <div class="divider-bottom">
+  <div class="divider-bottom pb-lg mb-lg">
     <header class="entry-header">
-      <?php the_title( sprintf( '<h5 class="entry-title red"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h5>' ); ?>
+      <?php the_title( sprintf( '<h3 class="entry-title red font-roboto"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
     </header>
     <!-- .entry-header -->
     
