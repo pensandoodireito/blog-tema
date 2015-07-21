@@ -56,6 +56,27 @@
     //Caixa de submenu interna, customizada
 }
 
+#sidebar-blog {
+    .textwidget {
+        padding: 15px;
+    }
+    ul,
+    li {
+        list-style-type: none;
+    }
+    ul {
+        padding: 15px;
+    }
+    li {
+        margin: 8px 0;
+        padding:0 0 8px 0;
+        border-bottom: 1px solid #F2F2F2;
+        &:last-child{
+           border-bottom: 0px; 
+        }
+    }
+}
+
 .intercambio-archive {
     //background: url("../images/intercambio-header.jpg") repeat top left #a58d37;
     height: 80px;
@@ -64,13 +85,13 @@
     position: relative;
     overflow: hidden;
     background-color: #000;
-    padding:0;
+    padding: 0;
     .titulo-header {
         position: absolute;
         top: 0px;
         left: 10px;
         text-shadow: 0px 3px 5px rgba(0, 0, 0, 1);
-        padding:10px;
+        padding: 10px;
     }
     .bck-header-intercambio {
         background-size: cover;

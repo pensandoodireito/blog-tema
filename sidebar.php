@@ -1,3 +1,3 @@
-<div class="col-md-4">
+<div id="sidebar-blog">
     <?php dynamic_sidebar( 'barra-lateral' ); ?>
 </div>

@@ -1,20 +1,34 @@
-<div class="row">
-    <div class="col-md-8 text-left">
-        <h2 class="red font-roboto"><?php the_title(); ?></h2>
-        <p><?php the_date('d \d\e F \d\e Y'); ?>
-            <span class="divider-left"><?php
-                $categories = get_the_category(get_the_ID());
-                $separator = ' | ';
-                $output = '';
-                if($categories){
-                foreach($categories as $category) {
-                $output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "Veja todas as notícias em %s" ), $category->name ) ) . '">'.$category->cat_name.'</a>'.$separator;
-                }
-                echo trim($output, $separator);
-                }
-            ?></span>
-        </p>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <header>
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <h3 class="red font-roboto h1 mt-0"><?php the_date('d'); ?></h3>
+                <p class="red font-roboto"><strong>abril/2014</strong></p>
+            </div>
+            <div class="col-sm-9">
+                <h4 class="font-roboto"><strong><a href="<?php the_permalink(); ?>" class="red"><?php the_title(); ?></a></strong></h4>
+                <p><small>Publicado por: <?php the_author(); ?></small></p>
+            </div>
+        </div>
+    </header>
+    <section>
+        <?php if (has_post_thumbnail()): ?>
+            <figure>
+                <?php the_post_thumbnail('full', array( 'class' => 'img-full' ) ); ?>
+            </figure>
+        <?php endif; ?>
+    </section>
+    <section class="mt-md">
         <?php the_content(); ?>
-    </div>
-    <?php get_sidebar(); ?>
-</div>
+        <div class="row">
+            <div class="col-sm-8">
+                <?php get_template_part('categories', 'list'); ?>
+            </div>
+            <div class="col-sm-4 text-right">
+                <p><small><i class="fa fa-comment-o"></i> <a href="<?php comments_link(); ?>" alt="comentários"><?php comments_number( 'nenhum comentário', 'um comentário', '% comentários' ); ?></a></small></p>
+            </div>
+        </div>
+        <?php get_template_part('share', 'links'); ?>
+        <?php comments_template(); ?>
+    </section>
+</article>

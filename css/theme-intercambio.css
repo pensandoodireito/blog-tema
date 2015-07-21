@@ -60,6 +60,24 @@
   -moz-box-shadow: -1px 6px 15px -5px rgba(0, 0, 0, 0.59);
   box-shadow: -1px 6px 15px -5px rgba(0, 0, 0, 0.59);
 }
+#sidebar-blog .textwidget {
+  padding: 15px;
+}
+#sidebar-blog ul,
+#sidebar-blog li {
+  list-style-type: none;
+}
+#sidebar-blog ul {
+  padding: 15px;
+}
+#sidebar-blog li {
+  margin: 8px 0;
+  padding: 0 0 8px 0;
+  border-bottom: 1px solid #F2F2F2;
+}
+#sidebar-blog li:last-child {
+  border-bottom: 0px;
+}
 .intercambio-archive {
   height: 80px;
   margin: 10px 0 30px 0;
