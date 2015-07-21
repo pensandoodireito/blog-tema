@@ -1,37 +1,34 @@
-<?php
-/**
- * The template part for displaying results in search pages
- *
- * Learn more: {@link https://codex.wordpress.org/Template_Hierarchy}
- *
- * @package WordPress
- * @subpackage Twenty_Fifteen
- * @since Twenty Fifteen 1.0
- */
-?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-  <!--<?php the_post_thumbnail(); ?>-->
-  <div class="divider-bottom pb-lg mb-lg">
-    <header class="entry-header">
-      <?php the_title( sprintf( '<h3 class="entry-title red font-roboto"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+    <header>
+        <div class="row">
+            <div class="col-sm-2 text-right">
+                <h3 class="red font-roboto h1 mt-0"><?php the_date('d'); ?></h3>
+                <p class="red font-roboto"><strong>abril/2014</strong></p>
+            </div>
+            <div class="col-sm-9">
+                <h4 class="font-roboto"><strong><a href="<?php the_permalink(); ?>" class="red"><?php the_title(); ?></a></strong></h4>
+                <p><small>Publicado por: <?php the_author(); ?></small></p>
+            </div>
+        </div>
     </header>
-    <!-- .entry-header -->
-    
-    <div class="entry-summary">
-      <?php the_excerpt(); ?>
-    </div>
-    <!-- .entry-summary -->
-    
-    <?php if ( 'post' == get_post_type() ) : ?>
-    <footer class="entry-footer">
-      <?php edit_post_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
-    </footer>
-    <!-- .entry-footer -->
-    
-    <?php else : ?>
-    <?php edit_post_link( __( 'Edit' ), '<footer class="entry-footer"><span class="edit-link">', '</span></footer><!-- .entry-footer -->' ); ?>
-    <?php endif; ?>
-  </div>
+    <section>
+        <?php if (has_post_thumbnail()): ?>
+            <figure>
+                <?php the_post_thumbnail('full', array( 'class' => 'img-full' ) ); ?>
+            </figure>
+        <?php endif; ?>
+    </section>
+    <section class="mt-md">
+        <?php the_excerpt(); ?>
+        <div class="row">
+            <div class="col-sm-8">
+                <?php get_template_part('categories', 'list'); ?>
+            </div>
+            <div class="col-sm-4 text-right">
+                <p><small><i class="fa fa-comment-o"></i> <a href="<?php comments_link(); ?>" alt="comentários"><?php comments_number( 'nenhum comentário', 'um comentário', '% comentários' ); ?></a></small></p>
+            </div>
+        </div>
+        <?php get_template_part('share', 'links'); ?>
+        <?php comments_template(); ?>
+    </section>
 </article>
-<!-- #post-## -->
