@@ -9,10 +9,11 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="intercambio-logo">
-                        <?php
-                            $blog_settings =  get_option('participacao_settings');
-                        ?>
+                    <?php
+                    $blog_settings =  get_option('participacao_settings');
+                    ?>
+                    <div class="intercambio-logo" style="background-image: url(<?php echo $blog_settings['padrao']; ?>);">
+
                         <h1 class="logo" style="background-image: url(<?php echo $blog_settings['logo']; ?>);">
                         Programa de intercâmbio SAL/SAJ
                         </h1>

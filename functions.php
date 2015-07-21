@@ -11,7 +11,15 @@ function blog_settings_init()
     add_settings_field(
         'participacao_blogpadrao_fundo',
         'Padrão de fundo do blog',
-        'participacao_blogpadrao_fundo_render',
+        'blog_padrao_fundo_render',
+        'pluginPage',
+        'participacao_pluginPage_section'
+    );
+
+    add_settings_field(
+        'participacao_blogpadrao_preview',
+        '',
+        'blog_padrao_fundo_preview_render',
         'pluginPage',
         'participacao_pluginPage_section'
     );
@@ -20,7 +28,7 @@ function blog_settings_init()
 /**
  * Render do campo para logo
  */
-function participacao_blogpadrao_fundo_render(  ) {
+function blog_padrao_fundo_render(  ) {
 
     $options = get_option( 'participacao_settings' );
     ?>
@@ -31,14 +39,50 @@ function participacao_blogpadrao_fundo_render(  ) {
 }
 
 /**
- * Render da previsualização da logo
+ * Render da previsualização da padrão
  */
-function participacao_blogpadrao_fundo_preview_render() {
+function blog_padrao_fundo_preview_render() {
     $options = get_option( 'participacao_settings' );  ?>
-    <div id="upload_logo_preview" style="min-height: 100px;">
+    <div id="upload_padrao_preview" style="min-height: 100px;">
         <img style="max-width:100%; <?php echo (!isset($options['padrao']) ? "display: none;" : ""); ?>"  src="<?php echo esc_url( $options['padrao'] ); ?>" />
     </div>
 <?php
+}
+
+add_action('admin_enqueue_scripts', 'blog_options_enqueue_scripts');
+function blog_options_enqueue_scripts() {
+    wp_register_script( 'blog-upload', get_stylesheet_directory_uri() .'/js/blog-upload.js', array('jquery','media-upload','thickbox') );
+
+    if ( 'settings_page_participacao-tema' == get_current_screen()-> id ) {
+        wp_enqueue_script('jquery');
+
+        wp_enqueue_script('thickbox');
+        wp_enqueue_style('thickbox');
+
+        wp_enqueue_script('media-upload');
+        wp_enqueue_script('blog-upload');
+
+    }
+
+}
+
+add_action( 'admin_init', 'blog_padrao_option_setup' );
+function blog_padrao_option_setup() {
+    global $pagenow;
+
+    if ( 'media-upload.php' == $pagenow || 'async-upload.php' == $pagenow ) {
+        add_filter( 'gettext', 'blog_padrao_change_text'  , 1, 3 );
+    }
+}
+
+function blog_padrao_change_text($translated_text, $text, $domain) {
+    if ('Insert into Post' == $text) {
+        $referer = strpos( wp_get_referer(), 'settings_page_blog-tema' );
+        if ( $referer != '' ) {
+            return 'Definir essa imagem como padrão do site';
+        }
+    }
+    return $translated_text;
 }
 
 add_action( 'widgets_init', 'blog_widgets_init' );
