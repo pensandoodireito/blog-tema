@@ -40,3 +40,16 @@ function participacao_blogpadrao_fundo_preview_render() {
     </div>
 <?php
 }
+
+add_action( 'widgets_init', 'blog_widgets_init' );
+function blog_widgets_init() {
+    register_sidebar( array(
+        'name' => 'Barra lateral',
+        'id' => 'barra-lateral',
+        'description' => 'Todos os itens presentes na barra lateral',
+        'before_widget' => '<div id="%1$s" class="widget %2$s panel panel-default">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<div class="panel-heading"><h4 class="red font-roboto">',
+        'after_title'   => '</h2></div>',
+    ) );
+}
