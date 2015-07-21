@@ -1,25 +1,33 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article class="description-post" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <header>
         <div class="row">
             <div class="col-sm-2 text-right">
                 <h3 class="red font-roboto h1 mt-0"><?php the_time('d'); ?></h3>
                 <p class="red font-roboto"><strong><?php the_time('F/Y'); ?></strong></p>
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-9 divider-left">
                 <h4 class="font-roboto"><strong><a href="<?php the_permalink(); ?>" class="red"><?php the_title(); ?></a></strong></h4>
                 <p><small>Publicado por: <?php the_author(); ?></small></p>
             </div>
         </div>
     </header>
-    <section>
-        <?php if (has_post_thumbnail()): ?>
-            <figure>
-                <?php the_post_thumbnail('full', array( 'class' => 'img-full' ) ); ?>
-            </figure>
-        <?php endif; ?>
+    <section class="mt-md">
+        <div class="row">
+            <div class="col-md-3">
+                <?php if (has_post_thumbnail()): ?>
+                <figure>
+                    <?php the_post_thumbnail('full', array( 'class' => 'img-full' ) ); ?>
+                </figure>
+                
+                <?php endif; ?>
+            </div>
+            <div class="col-md-9">
+                <?php the_excerpt(); ?>
+            </div>
+        </div>
     </section>
     <section class="mt-md">
-        <?php the_excerpt(); ?>
+        
         <div class="row">
             <div class="col-sm-8">
                 <?php get_template_part('categories', 'list'); ?>

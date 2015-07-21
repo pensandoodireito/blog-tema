@@ -1,15 +1,18 @@
 <?php
 get_header(); ?>
 <div class="container">
-    <?php include('titleblog.php'); ?>
+    <div class="row mb-md">
+        <div class="col-md-12">
+            <?php include('titleblog.php'); ?>
+            <h2 class="red font-roboto">Lista de posts na categoria "<mark class="red"><?php echo  single_cat_title( '', false ); ?></mark>"</h2>
+        </div>
+    </div>
     <div class="row">
-        <h2>Lista de posts na categoria "<?php echo  single_cat_title( '', false ); ?>"</h2>
-
         <?php
         // Show an optional term description.
         $term_description = term_description();
         if ( ! empty( $term_description ) ) :
-            printf( '<div class="taxonomy-description">%s</div>', $term_description );
+        printf( '<div class="taxonomy-description">%s</div>', $term_description );
         endif;
         ?>
         <div class="col-md-8">
