@@ -6,7 +6,7 @@
                 <p class="red font-roboto"><strong><?php the_time('F/Y'); ?></strong></p>
             </div>
             <div class="col-sm-9 divider-left">
-                <h2 class="font-roboto red"><a href="<?php the_permalink(); ?>" class="red"><?php the_title(); ?></a></h2>
+                <h2 class="font-roboto red"><?php the_title(); ?></h2>
                 <p><small>Publicado por: <?php the_author(); ?></small></p>
             </div>
         </div>
