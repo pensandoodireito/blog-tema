@@ -4,7 +4,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <h2 class="red font-roboto"><?php bloginfo('title'); ?></h2>
+                    <h2 class="red font-roboto">
+                        <a href="<?php echo home_url(); ?>" alt="<?php bloginfo('title'); ?>">
+                        <?php bloginfo('title'); ?></a>
+                    </h2>
                 </div>
             </div>
             <div class="row">
@@ -14,9 +17,9 @@
                     ?>
                     <div class="intercambio-logo" style="background-image: url(<?php echo $blog_settings['padrao']; ?>);">
 
-                        <h1 class="logo" style="background-image: url(<?php echo $blog_settings['logo']; ?>);">
+                        <a href="<?php echo home_url(); ?>" alt="<?php bloginfo('title'); ?>"><h1 class="logo" style="background-image: url(<?php echo $blog_settings['logo']; ?>);">
                         Programa de intercâmbio SAL/SAJ
-                        </h1>
+                        </h1></a>
                     </div>
                     
                 </div>
