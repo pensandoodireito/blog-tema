@@ -34,12 +34,21 @@
 
                     <?php endwhile; ?>
 
-                    <div class="row divider-top mt-lg mb-lg text-center">
-                        <div class="col-xs-12">
-                            <a href="#" class="btn btn-danger"><i class="fa fa-plus"></i> Mais postagens</a>
-                        </div>
-                    </div>
+
                 </div>
+                <?php
+                    if (get_query_var('paged') < $wp_query->max_num_pages && $wp_query->max_num_pages > 1) {
+                        ?>
+                        <div class="row divider-top mt-lg mb-lg text-center">
+                            <div class="col-xs-12">
+                                <a href="#" class="btn btn-danger" id="mais-noticias"
+                                   onclick="return carregar_noticias('.intercambio-content');"><i class="fa fa-plus"></i> Mais
+                                    postagens</a>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                ?>
             </div>
             <div class="col-md-4">
                 <?php get_sidebar(); ?>
