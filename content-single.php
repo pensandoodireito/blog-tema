@@ -11,13 +11,6 @@
             </div>
         </div>
     </header>
-    <section>
-        <?php if (has_post_thumbnail()): ?>
-        <figure>
-            <?php the_post_thumbnail('full', array( 'class' => 'img-full' ) ); ?>
-        </figure>
-        <?php endif; ?>
-    </section>
     <section class="mt-md">
         <?php the_content(); ?>
         <div class="row">
