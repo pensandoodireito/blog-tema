@@ -3,8 +3,27 @@ get_header(); ?>
 <div class="container">
     <div class="row mb-md">
         <div class="col-md-12">
-            <?php include('titleblog.php'); ?>
-            <h2 class="red font-roboto">Lista de posts na categoria "<mark class="red"><?php echo  single_cat_title( '', false ); ?></mark>"</h2>
+            <?php get_template_part('titleblog'); ?>
+            <?php ?>
+            <h2 class="red font-roboto">
+                <?php
+                if ( is_category() ) :
+                    printf( 'Lista de posts na categoria "<mark class="red">%s</mark>"',  single_cat_title( '', false ) );
+                elseif ( is_day() ) :
+                    printf( 'Lista de posts publicados no dia "<mark class="red">%s</mark>"', get_the_date('d/m/Y') );
+
+                elseif ( is_month() ) :
+                    printf( 'Lista de posts publicados no mês "<mark class="red">%s</mark>"', get_the_date( 'F \d\e Y' ) );
+
+                elseif ( is_year() ) :
+                    printf( 'Lista de posts publicados no ano de "<mark class="red">%s</mark>"', get_the_date( 'Y' ) );
+
+                else :
+                    printf( 'Posts' );
+
+                endif;
+                ?>
+            </h2>
         </div>
     </div>
     <div class="row">
