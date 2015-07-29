@@ -144,6 +144,9 @@
   opacity: 0.9;
   filter: alpha(opacity=50);
 }
+.ssb-share.round {
+  margin-top: 43px;
+}
 .description-post {
   -webkit-border-top-right-radius: 30px;
   -webkit-border-bottom-left-radius: 30px;
