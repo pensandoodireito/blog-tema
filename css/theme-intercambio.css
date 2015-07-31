@@ -107,6 +107,21 @@
 #sidebar-blog li:last-child {
   border-bottom: 0px;
 }
+#sidebar-blog .widget:before,
+#sidebar-blog .widget:after {
+  content: " ";
+  display: table;
+}
+#sidebar-blog .widget:after {
+  clear: both;
+}
+#sidebar-blog .widget form {
+  padding: 15px 30px 15px 0px;
+  width: 100%;
+}
+#sidebar-blog .widget form .input-group {
+  width: 100%;
+}
 .intercambio-archive {
   height: 80px;
   margin: 10px 0 30px 0;

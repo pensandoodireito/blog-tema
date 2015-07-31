@@ -56,20 +56,21 @@
         }
     }
 }
-.wp-caption{
-  margin: 0 auto;
-  border: 1px solid #ccc;
-  padding: 20px;
-  background-color: #f2f2f2;
-  .borda-sombra();
-  .wp-caption-text{
-    margin-top: 15px;
-    
-  }
-  img{
+
+.wp-caption {
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f2f2f2;
     .borda-sombra();
-  }
+    .wp-caption-text {
+        margin-top: 15px;
+    }
+    img {
+        .borda-sombra();
+    }
 }
+
 //Caixa de submenu interna, customizada
 #sidebar-blog {
     .textwidget {
@@ -88,6 +89,16 @@
         border-bottom: 1px solid #F2F2F2;
         &:last-child {
             border-bottom: 0px;
+        }
+    }
+    .widget {
+        .clearfix();
+        form{ 
+            padding:15px 30px 15px 0px;
+            width:100%;
+            .input-group{
+                width:100%;
+            }
         }
     }
 }
@@ -125,13 +136,14 @@
 }
 
 // página interna
-.description-post{
+.description-post {
     .borda-sombra();
     background-color: #fff;
     border-left: 5px solid #d4d4d4;
     padding: 15px;
     margin-bottom: 15px;
 }
+
 // customiza os comentários
 #respond {
     &.comment-respond {
